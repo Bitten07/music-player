@@ -1,3 +1,7 @@
+:root {
+    --progress: 0%;
+}
+
 body {
     background-image: linear-gradient(
         rgb(59, 88, 93),
@@ -14,8 +18,9 @@ body {
 
 button {
     background-color: inherit;
-    border: inherit;
     color: inherit;
+    border: none;
+    cursor: pointer;
 }
 
 .below-cover {
@@ -30,7 +35,12 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+}
+
+.progress-container {
+    cursor: pointer;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 .button {
@@ -70,7 +80,6 @@ button {
 }
 
 .progress-bar {
-    margin-bottom: 10px;
     height: 5px;
     width: 100%;
     border-radius: 15px;
@@ -80,6 +89,10 @@ button {
 .current-progress {
     height: inherit;
     border-radius: inherit;
-    width: 50%;
+    width: var(--progress);
     background-color: rgb(255, 255, 255);
+}
+
+.button-active {
+    color: rgb(0, 183, 107);
 }

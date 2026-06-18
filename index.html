@@ -6,25 +6,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="shortcut icon" href="/features/playfavi.png" type="image/png">
+    <link rel="shortcut icon" href="/images/playfavi.png" type="image/png">
 </head>
 <body>
     <div class="player">
-        <h4 class="title-playlist">Dead End</h4>
-        <img src="/features/MeuPaiMeDisse.jpeg" alt="imagem de capa do album" class="cover">
-        <audio id="audio" src="/features/MeuPaiMeDisse.mp3"></audio>
+        <h4 class="title-playlist">Playlist</h4>
+        <img alt="Music cover" id="cover" class="cover">
+        <audio id="audio"></audio>
         <div class="below-cover">
             <div class="song-info">
                 <div id="song-name" class="title-song">Nome da música</div>
-                <button id="singer-name" class="singer-name light-color">Artista</button>
+                <button id="singer" class="singer-name light-color">Artista</button>
             </div>
-            <div class="like button light-color"><i class="bi bi-heart"></i></div>
+            <button class="like button light-color"><i class="bi bi-heart"></i></button>
         </div>
-        <div class="progress-bar">
-            <div class="current-progress"></div>
+        <div id="progress-container" class="progress-container">
+            <div class="progress-bar">
+                <div id = "current-progress" class="current-progress"></div>
+            </div>
         </div>
         <div class="button-container">
-            <button id="shulffle" class="button"><i class="bi bi-shuffle"></i></div>
+            <button id="shuffle" class="button"><i class="bi bi-shuffle"></i></button>
             <button id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></button>
             <button id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></button>
             <button id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></button>
