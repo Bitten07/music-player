@@ -7,14 +7,11 @@ const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 const currentProgress = document.getElementById('current-progress');
 const progressContainer = document.getElementById('progress-container');
-const percentBar = 0;
 const shuffle = document.getElementById('shuffle');
 
-let size = 0;
 let width = 0;
 let clickPosition = 0;
 let JumpToTime = 0;
-let currentIndex = size - 1;
 let isShuffled = false;
 let isPlaying = false;
 let randomIndex = 0;
@@ -96,7 +93,7 @@ if (index === playlistSorted.length - 1){
 }
 
 function updateProgressBar() {
-    percentBar = (song.currentTime/song.duration)*100;
+    const percentBar = (song.currentTime/song.duration)*100;
     currentProgress.style.setProperty('--progress', `${percentBar}%`); 
 }
 
@@ -108,11 +105,12 @@ function jumpTo(event) {
 }
 
 function shuffleArray(preshuffleArray) {
-    size = preshuffleArray.length;
+    let size = preshuffleArray.length;
+    let currentIndex = size - 1;
     while (currentIndex > 0){
-        randomIndex = Math.floor(Math.random()*size);
+        randomIndex = Math.floor(Math.random()*currentIndex);
         auxIndex = preshuffleArray[currentIndex];
-        preshuffleArray[currentIndex] = randomIndex;
+        preshuffleArray[currentIndex] = preshuffleArray[randomIndex];
         preshuffleArray[randomIndex] = auxIndex;
         currentIndex -= 1;
     }
@@ -125,10 +123,11 @@ function shuffleClick() {
         shuffle.classList.add('button-active')
     } else {
         isShuffled = false;
-        playlistSorted;
+        playlistSorted = [...playlist];
         shuffle.classList.remove('button-active')
     }
 }
+
 // Initializing Functions
 initializeSong();
 
