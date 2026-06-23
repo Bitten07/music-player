@@ -39,8 +39,15 @@ button {
 
 .progress-container {
     cursor: pointer;
-    padding-bottom: 1em;
     padding-top: 1em;
+}
+
+.time-container {
+    font-size: smaller;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0.5em;
 }
 
 .button {
