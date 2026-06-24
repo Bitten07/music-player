@@ -5,7 +5,7 @@
 body {
     background-image: linear-gradient(
         rgb(59, 88, 93),
-        rgb(29,49,42)
+        rgb(9, 14, 12)
     );
     height: 100vh;
     color: white;
@@ -21,6 +21,10 @@ button {
     color: inherit;
     border: none;
     cursor: pointer;
+}
+
+.cover-container {
+    margin: 0px;
 }
 
 .below-cover {
@@ -63,23 +67,26 @@ button {
 }
 
 .cover {
-    width: 400px;
-    margin: 50px;
+    width: min(400px, 80vw);
+    margin: 50px auto;
     border-radius: 3%;
     box-shadow: 4px 4px 15px black;
 }
 
 .title-playlist {
     justify-self: center;
+    margin: 0px;
 }
 
 .title-song {
+    margin: 0px;
     font-size: 2em;
     font-weight: bolder;
 }
 
 .singer-name {
     font-size: 1em;
+    margin: 0px;
 }
 
 .light-color {

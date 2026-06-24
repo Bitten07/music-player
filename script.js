@@ -15,7 +15,7 @@ const like = document.getElementById('like');
 
 let width = 0;
 let clickPosition = 0;
-let JumpToTime = 0;
+let jumpToTime = 0;
 let isShuffled = false;
 let isPlaying = false;
 let isRepeat = false;
@@ -44,7 +44,20 @@ const monsterSkillet = {
     liked : false
 };
 
-const playlist = [meuPaiMeDisse, pombaDaPaz, monsterSkillet];
+const ColorYourNight = {
+    songName : 'Color Your Night',
+    singer : 'Lotus Juice',
+    file : 'ColorYourNight',
+    liked : false
+};
+
+const playlist = JSON.parse(localStorage.getItem('playlist')) ?? 
+[
+    meuPaiMeDisse, 
+    pombaDaPaz, 
+    monsterSkillet, 
+    ColorYourNight
+];
 let playlistSorted = [...playlist];
 let index = 0;
 
@@ -73,7 +86,7 @@ function initializeSong() {
     cover.src = `/images/${playlistSorted[index].file}.jpeg`;
     song.src = `/songs/${playlistSorted[index].file}.mp3`;
     songName.innerText = playlistSorted[index].songName
-    singer.innerText = playlistSorted[index].singer;
+    singerName.innerText = playlistSorted[index].singer;
     likeRender();
 }
 
@@ -118,8 +131,8 @@ function updateProgress() {
 function jumpTo(event) {
     width = progressContainer.clientWidth;
     clickPosition = event.offsetX;
-    JumpToTime = (clickPosition/width)*song.duration;
-    song.currentTime = JumpToTime;
+    jumpToTime = (clickPosition/width)*song.duration;
+    song.currentTime = jumpToTime;
 }
 
 function shuffleArray(preshuffleArray) {
@@ -186,11 +199,11 @@ function likeRender() {
 function likeClick() {
     if(playlistSorted[index].liked === false) {
         playlistSorted[index].liked = true
-        likeRender();
     } else {
         playlistSorted[index].liked = false
-        likeRender();
     }
+    likeRender();
+    localStorage.setItem('playlist', JSON.stringify(playlist));
 }
 
 // Initializing Functions

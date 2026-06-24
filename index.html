@@ -1,42 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
+    <title>Playlist | Music Player</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="shortcut icon" href="/images/playfavi.png" type="image/png">
 </head>
 <body>
-    <div class="player">
-        <h4 class="title-playlist">Playlist</h4>
-        <img alt="Music cover" id="cover" class="cover">
+    <main class="player">
+        <h1 class="title-playlist">Playlist</h1>
+
+        <figure class="cover-container">
+            <img alt="Capa da música atual" id="cover" class="cover">
+        </figure>
+
         <audio id="audio"></audio>
-        <div class="below-cover">
+
+        <section class="below-cover">
             <div class="song-info">
-                <div id="song-name" class="title-song">Nome da música</div>
-                <button id="singer" class="singer-name light-color">Artista</button>
+                <h2 id="song-name" class="title-song">Nome da música</h2>
+                <p id="singer" class="singer-name light-color">Artista</p>
             </div>
-            <button id="like" class="like button light-color"><i class="bi bi-heart"></i></button>
-        </div>
-        <div id="progress-container" class="progress-container">
+
+            <button id="like" class="like button light-color" aria-label="Curtir música">
+                <i class="bi bi-heart" aria-hidden="true"></i>
+            </button>
+        </section>
+
+        <section id="progress-container" class="progress-container" aria-label="Progresso da música">
             <div class="progress-bar">
                 <div id = "current-progress" class="current-progress"></div>
             </div>
             <div id="time-container" class="time-container">
-                <div id="time-current">00:00</div>
-                <div id="time-total">00:00</div>
+                <time id="time-current">00:00</time>
+                <time id="time-total">00:00</time>
             </div>
-        </div>
-        <div class="button-container">
-            <button id="shuffle" class="button"><i class="bi bi-shuffle"></i></button>
-            <button id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></button>
-            <button id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></button>
-            <button id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></button>
-            <button id="repeat" class="button"><i class="bi bi-repeat"></i></button>
-        </div>
-    </div>
+        </section>
+        <section class="button-container" aria-label="Controles de reprodução">
+            <button aria-label="Embaralhar fila" id="shuffle" class="button">
+                <i class="bi bi-shuffle" aria-hidden="true"></i>
+            </button>
+            <button aria-label="Voltar música" id="previous" class="button button-navigate">
+                <i class="bi bi-skip-start-fill" aria-hidden="true"></i>
+            </button>
+            <button aria-label="Tocar-Pausar música" id="play" class="button button-biggest">
+                <i class="bi bi-play-circle-fill" aria-hidden="true"></i>
+            </button>
+            <button aria-label="Próxima música" id="next" class="button button-navigate">
+                <i class="bi bi-skip-end-fill" aria-hidden="true"></i>
+            </button>
+            <button aria-label="Repetir música" id="repeat" class="button">
+                <i class="bi bi-repeat" aria-hidden="true"></i>
+            </button>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
